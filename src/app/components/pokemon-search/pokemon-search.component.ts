@@ -10,14 +10,15 @@ import { of } from 'rxjs';
   selector: 'app-pokemon-search',
   standalone: true,
   imports: [FormsModule, CommonModule, PokemonCardComponent],
-  templateUrl: './pokemon-search.component.html',
-  styleUrls: ['./pokemon-search.component.scss']
+  templateUrl: './pokemon-search.component.html',  
+  styleUrls: ['./pokemon-search.component.scss']  
 })
 export class PokemonSearchComponent {
   searchQuery: string = ''; 
   pokemon: any = null; 
   error: string = ''; 
   pokemonTypes: string = ''; 
+  previousSearches: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -28,20 +29,21 @@ export class PokemonSearchComponent {
         this.error = 'Pokémon não encontrado!';
         this.pokemon = null;
         this.pokemonTypes = '';
-        return of(null);  // Retorna um observable nulo para continuar o fluxo
+        return of(null);  
       })
     ).subscribe({
       next: (data: any) => {
         if (data) {
-          console.log('Pokemon Data:', data); 
           this.pokemon = data;
-          this.pokemonTypes = data.types.map((t: any) => t.type.name).join(', ');
+          this.pokemonTypes = this.getPokemonTypes(data);
+          this.previousSearches.push({ ...data, typesString: this.getPokemonTypes(data) });
           this.error = '';
         }
-      },
-      complete: () => {
-        console.log('Requisição completa'); 
       }
     });
+  }
+
+  getPokemonTypes(pokemon: any): string {
+    return pokemon.types.map((t: any) => t.type.name).join(', ');
   }
 }

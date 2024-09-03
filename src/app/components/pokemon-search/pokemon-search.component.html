@@ -1,11 +1,24 @@
-<div class="search-container">
-    <input type="text" placeholder="Digite o nome do Pokémon" [(ngModel)]="searchQuery" />
-    <button (click)="searchPokemon()">Buscar</button>
-  </div>
-  
-  <div *ngIf="pokemon">
+<div class="header">
+    <h1>Pesquise qualquer Pokemon</h1>
+    <div class="search-container">
+        <input type="text" placeholder="Digite o nome do Pokémon" [(ngModel)]="searchQuery" class="search-input" />
+        <button class="search-button" (click)="searchPokemon()">Pesquisar</button>
+    </div>
+</div>
+
+<div *ngIf="pokemon" class="result-container">
     <app-pokemon-card [pokemon]="pokemon" [pokemonTypes]="pokemonTypes"></app-pokemon-card>
-  </div>
-  
-  <div *ngIf="error" class="error-message">{{ error }}</div>
-  
+</div>
+
+<div *ngIf="error" class="error-message">{{ error }}</div>
+
+<div *ngIf="previousSearches.length > 0" class="previous-searches">
+    <h3>Pesquisas Anteriores</h3>
+    <div *ngFor="let previousPokemon of previousSearches" class="previous-pokemon">
+        <app-pokemon-card [pokemon]="previousPokemon" [pokemonTypes]="previousPokemon.typesString"></app-pokemon-card>
+    </div>
+</div>
+
+<div *ngIf="previousSearches.length === 0" class="no-searches">
+    Nenhuma pesquisa foi feita ainda.
+</div>

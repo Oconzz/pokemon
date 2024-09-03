@@ -13,11 +13,28 @@
   
   .modal-content {
     background: white;
-    padding: 20px;
+    padding: 30px; /* Aumenta o padding para dar mais espaço ao conteúdo */
     border-radius: 8px;
     max-width: 500px;
     width: 100%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  .modal-content h2 {
+    font-size: 2em; /* Aumenta o tamanho do texto do título */
+    margin-bottom: 20px;
+  }
+  
+  .modal-content p {
+    font-size: 1.2em; /* Aumenta o tamanho dos textos descritivos */
+    margin-bottom: 15px;
+  }
+  
+  .modal-content img {
+    max-width: 150px; /* Ajusta o tamanho da imagem dentro do modal */
+    margin: 20px auto; /* Centraliza a imagem horizontalmente */
+    display: block;
   }
   
   .close-button {
@@ -25,5 +42,6 @@
     float: right;
     font-size: 24px;
     font-weight: bold;
+    color: #333; /* Mantém a cor do botão de fechar */
   }
   

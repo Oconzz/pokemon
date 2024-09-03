@@ -5,20 +5,29 @@
     margin: 16px 0;
     background-color: #f9f9f9;
     cursor: pointer;
+    text-align: center; 
   }
   
   .card-header {
     font-weight: bold;
     font-size: 1.2em;
-    color: #333;
+    color: #b50202; 
+    display: inline-block;
+  }
+  
+  .arrow {
+    font-size: 1.2em;
+    color: #b50202; 
+    margin-left: 8px; 
+    text-decoration: none; 
   }
   
   .card-body {
-    padding: 16px 0;
+    padding: 10px 0;
   }
   
   img {
-    max-width: 100px;
+    max-width: 300px;
     display: block;
     margin: 0 auto 16px;
   }

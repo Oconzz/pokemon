@@ -1,0 +1,11 @@
+<div class="search-container">
+    <input type="text" placeholder="Digite o nome do Pokémon" [(ngModel)]="searchQuery" />
+    <button (click)="searchPokemon()">Buscar</button>
+  </div>
+  
+  <div *ngIf="pokemon">
+    <app-pokemon-card [pokemon]="pokemon" [pokemonTypes]="pokemonTypes"></app-pokemon-card>
+  </div>
+  
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  

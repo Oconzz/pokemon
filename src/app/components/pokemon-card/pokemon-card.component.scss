@@ -1,0 +1,40 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .card-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .card-body {
+    padding: 16px 0;
+  }
+  
+  img {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 16px;
+  }
+  
+  button {
+    display: block;
+    margin: 16px auto 0;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

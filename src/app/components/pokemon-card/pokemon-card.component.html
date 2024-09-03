@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header" (click)="toggleCard()">
+      <h2>{{ pokemon.name | uppercase }}</h2>
+    </div>
+    <div *ngIf="isOpen" class="card-body">
+      <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+      <p>Tipo: {{ pokemonTypes }}</p>
+      <button (click)="openModal()">Ver mais detalhes</button>
+    </div>
+  </div>
+  
+  <!-- O modal é exibido condicionalmente -->
+  <app-pokemon-detail-modal 
+    *ngIf="showModal" 
+    [pokemon]="pokemon" 
+    (close)="closeModal()">
+  </app-pokemon-detail-modal>
+  
